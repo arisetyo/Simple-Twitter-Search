@@ -1,0 +1,59 @@
+<html> 
+<head> 
+	<title>Simple Twitter Search</title> 
+	<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="AIRAliases.js"></script>
+	<script type="text/javascript">
+
+	$(document).ready(function() {
+		
+		$("#searchtxt").keypress(function(e) {
+			if(e.keyCode == 13) {
+				var searchTerm = $("#searchtxt").val();
+				searchTerm = $.trim(searchTerm);
+				if(searchTerm == '') return false;
+				$("#tweetresult").html("<i>Searching...</i>");
+				searchTwitter(searchTerm);
+				return false;
+			}
+		})
+	})    
+
+	function searchTwitter(str) {
+		var searchURL = "http://search.twitter.com/search.json?";
+		$.getJSON(searchURL,{q:str},function(r) {
+			$("#tweetresult").html("");
+			if (r.results != null) {
+				for (var i = 0; i < r.results.length; i++) {
+					var result = r.results[i];
+					drawTwitterResult(result);
+				}
+			}
+		})
+	
+	}
+
+	function drawTwitterResult(tweet) {
+		var s = "<div class='twitterResult'>";
+		s+="<img src='"+tweet.profile_image_url+"' class='twitterProfileImage' width='30' height='30'>";
+		s+=tweet.text+="<br/>";
+		s+="<div class='twitterByline'>"+tweet.from_user+' at '+tweet.created_at+"</div>";
+		s+="<div style='clear:both'></div>";
+		s+="</div>";
+		$("#tweetresult").append(s);
+	}
+
+	</script>
+</head> 
+<body>
+<div id="container">
+
+	<div id="input">
+		<input type="text" id="searchtxt" value="search twitter..." onClick="this.value=''"/>
+	</div>
+
+	<div id="tweetresult"></div>
+</div>
+</body> 
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<application xmlns="http://ns.adobe.com/air/application/1.5"> 
+    <id>com.galenic.SimpleTwitterSearch</id> 
+    <version>0.2</version> 
+    <filename>SimpleTwitterSearch</filename>
+    <copyright>GNU Public License</copyright>
+    <initialWindow> 
+        <content>STS.html</content> 
+        <visible>true</visible> 
+        <width>400</width> 
+        <height>700</height>
+	<maxSize>400 700</maxSize>
+	<minSize>400 700</minSize>
+	<x>200</x>
+	<y>100</y>
+    </initialWindow> 
+</application>

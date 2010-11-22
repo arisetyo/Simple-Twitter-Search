@@ -1,0 +1,46 @@
+* {margin:0, padding:0;}
+
+body {
+	background-color: #BBB;
+}
+
+#container {
+	margin: auto;
+	width: 400px
+	height: 700px;
+}
+
+#input {
+	background-color: #AAA;
+	padding: 10px;
+	height: 40px;
+}
+
+#tweetresult {
+	height: 580px;
+}
+
+input#searchtxt {
+	background-color: #AAA;
+	color: #DDD;
+	font-size: 24px;
+	width: 350px;
+	height: 40px;
+	border: none;
+}
+
+.twitterResult {
+	background-color: #D0D0D0;
+	margin: 10px;
+	padding: 10px;
+}
+
+.twitterProfileImage {
+	float: left;
+	margin-right:10px;
+}
+
+.twitterByline {
+	font-style:italic;
+	font-size: 10px;
+}
